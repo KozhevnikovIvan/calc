@@ -1,1 +1,5 @@
 # calc
+
+int main ()
+{
+}
