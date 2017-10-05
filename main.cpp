@@ -1,11 +1,12 @@
-
 #include <iostream>
+
 using namespace std;
+
 int main(int argc, char *argv[]) {
 	char choice[1][1];
 	choice[0][0] = 'y';
 	while ((char)choice[0][0] == 'y') {
-		int op1, op2;
+		int a, b;
 		char x[1][1];
 		do {
 			cout << "Выбирите одну из операций[+.-.*,/,%,^,!,&,|,<,>]:"
@@ -19,52 +20,52 @@ int main(int argc, char *argv[]) {
 			x[0][0] == '%' || x[0][0] == '^' || x[0][0] == '>' || x[0][0] == '<' ||
 			x[0][0] == '|' || x[0][0] == '&') {
 			cout << "Введите первое число:" << endl;
-			cin >> op1;
+			cin >> a;
 			cout << "Введите второе число:" << endl;
-			cin >> op2;
+			cin >> b;
 			if (cin.good()) {
 				switch ((char)x[0][0]) {
 				case '+':
-					cout << "Сумма:" << (op1 + op2) << endl;
+					cout << "Сумма:" << (a + b) << endl;
 					break;
 				case '-':
-					cout << "Разность:" << (op1 - op2) << endl;
+					cout << "Разность:" << (a - b) << endl;
 					break;
 				case '*':
-					cout << "Произведение:" << (op1 * op2) << endl;
+					cout << "Произведение:" << (a * b) << endl;
 					break;
 				case '/':
-					if (op2 != 0)
-						cout << "Частное:" << (double)op1 / (double)op2 << endl;
+					if (b != 0)
+						cout << "Частное:" << (double)a / (double)b << endl;
 					else
 						cerr << "Ошибка: на 0 делить нельзя!" << endl;
 					break;
 				case '%':
-					cout << "Модуль:" << (op1 % op2) << endl;
+					cout << "Модуль:" << (a % b) << endl;
 					break;
 				case '^':
-					for (int i = 0, j = op1; i < op2 - 1; i++) op1 *= j;
-					cout << "Возведение в степень:" << op1 << endl;
+					for (int i = 0, j = a; i < b - 1; i++) a *= j;
+					cout << "Возведение в степень:" << a << endl;
 					break;
 				case '&':
-					cout << "Побитовая И:" << (op1 & op2) << endl;
+					cout << "Побитовая И:" << (a & b) << endl;
 					break;
 				case '<':
-					if (op2 >= 0)
-						cout << "Побитовый сдвиг влево:" << (op1 << op2)
+					if (b >= 0)
+						cout << "Побитовый сдвиг влево:" << (a << b)
 						<< endl;
 					else
 						cerr << "Некорректные данные" << endl;
 					break;
 				case '>':
-					if (op2 >= 0)
-						cout << "Побитовый сдвиг вправо:" << (op1 >> op2)
+					if (b >= 0)
+						cout << "Побитовый сдвиг вправо:" << (a >> b)
 						<< endl;
 					else
 						cerr << "Некорректные данные" << endl;
 					break;
 				case '|':
-					cout << "Побитовое ИЛИ:" << (op1 | op2) << endl;
+					cout << "Побитовое ИЛИ:" << (a | b) << endl;
 					break;
 				default:
 				}
@@ -77,10 +78,10 @@ int main(int argc, char *argv[]) {
 		}
 		if (x[0][0] == '!') {
 			cout << "Введите пожалуйста число:" << endl;
-			cin >> op1;
+			cin >> a;
 			switch ((char)x[0][0]) {
 			case '!':
-				cout << (!op1) << endl;
+				cout << (!a) << endl;
 				break;
 			default:
 				cerr << "Ошибка" << endl;
